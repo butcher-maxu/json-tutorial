@@ -90,6 +90,7 @@ static int lept_parse_number(lept_context* c, lept_value* v) {
     return LEPT_PARSE_OK;
 }
 
+/* 读 4 位 16 进制数字 */
 static const char* lept_parse_hex4(const char* p, unsigned* u) {
     int i;
     *u = 0;

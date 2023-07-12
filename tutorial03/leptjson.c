@@ -17,9 +17,10 @@
 typedef struct {
     const char* json;
     char* stack;
-    size_t size, top;
+    size_t size, top; /* size: 当前堆栈的容量， top: 栈顶的位置 */
 }lept_context;
 
+/* 需要往堆栈加入 size 数据*/
 static void* lept_context_push(lept_context* c, size_t size) {
     void* ret;
     assert(size > 0);
@@ -27,7 +28,7 @@ static void* lept_context_push(lept_context* c, size_t size) {
         if (c->size == 0)
             c->size = LEPT_PARSE_STACK_INIT_SIZE;
         while (c->top + size >= c->size)
-            c->size += c->size >> 1;  /* c->size * 1.5 */
+            c->size += c->size >> 1;  /* c->size * 1.5 : 扩大容量*/
         c->stack = (char*)realloc(c->stack, c->size);
     }
     ret = c->stack + c->top;
