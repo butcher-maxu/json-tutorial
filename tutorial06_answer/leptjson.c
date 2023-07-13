@@ -271,7 +271,7 @@ static int lept_parse_object(lept_context* c, lept_value* v) {
         c->json++;
         lept_parse_whitespace(c);
         /* parse value */
-        if ((ret = lept_parse_value(c, &m.v)) != LEPT_PARSE_OK)
+        if ((ret = lept_parse_value(c, &m.v)) != LEPT_PARSE_OK) 
             break;
         memcpy(lept_context_push(c, sizeof(lept_member)), &m, sizeof(lept_member));
         size++;

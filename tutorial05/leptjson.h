@@ -9,7 +9,7 @@ typedef struct lept_value lept_value;
 
 struct lept_value {
     union {
-        struct { lept_value* e; size_t size; }a;    /* array:  elements, element count */
+        struct { lept_value* e; size_t size; }a;    /* array:  elements, element count 注意这里 size 是元素的个数，不是字节单位 */
         struct { char* s; size_t len; }s;           /* string: null-terminated string, string length */
         double n;                                   /* number */
     }u;

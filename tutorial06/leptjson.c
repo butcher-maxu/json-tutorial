@@ -226,6 +226,7 @@ static int lept_parse_array(lept_context* c, lept_value* v) {
     return ret;
 }
 
+/* 解析 object */
 static int lept_parse_object(lept_context* c, lept_value* v) {
     size_t size;
     lept_member m;
@@ -239,7 +240,7 @@ static int lept_parse_object(lept_context* c, lept_value* v) {
         v->u.o.size = 0;
         return LEPT_PARSE_OK;
     }
-    m.k = NULL;
+    m.k = NULL;/* 键 */
     size = 0;
     for (;;) {
         lept_init(&m.v);

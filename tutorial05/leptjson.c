@@ -195,7 +195,7 @@ static int lept_parse_array(lept_context* c, lept_value* v) {
         return LEPT_PARSE_OK;
     }
     for (;;) {
-        lept_value e;
+        lept_value e; /* 临时变量e, 存放之后的元素，然后又回去解析这个元素 */
         lept_init(&e);
         if ((ret = lept_parse_value(c, &e)) != LEPT_PARSE_OK)
             return ret;
